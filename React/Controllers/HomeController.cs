@@ -38,6 +38,12 @@ namespace React.Controllers
             return Content("Success :)");
         }
 
+        [HttpPost]
+        public ActionResult Login(LoginModel login)
+        {
+            return Content("Success :)");
+        }
+
         [OutputCache(Location = OutputCacheLocation.None)]
         public ActionResult Comments()
         {

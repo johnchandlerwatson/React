@@ -102,3 +102,5 @@ c:\users\wats1109\documents\visual studio 2015\Projects\React\React\bin\ru-ru\Ms
 c:\users\wats1109\documents\visual studio 2015\Projects\React\React\obj\Debug\React.csprojResolveAssemblyReference.cache
 c:\users\wats1109\documents\visual studio 2015\Projects\React\React\obj\Debug\React.dll
 c:\users\wats1109\documents\visual studio 2015\Projects\React\React\obj\Debug\React.pdb
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\React\React\bin\System.Web.Optimization.React.dll
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\React\React\bin\System.Web.Optimization.React.xml

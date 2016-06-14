@@ -46,7 +46,7 @@ var CommentForm = React.createClass({
     },
     render: function() {
         return (
-          <form className="commentForm" onSubmit={this.handleSubmit}>
+          <form className="commentForm" onSubmit={this.handleSubmit} >
             <input type="text" placeholder="Your name" ref="author" />
             <input type="text" placeholder="Say something..." ref="text" />
             <input type="submit" value="Post" />
@@ -94,7 +94,44 @@ var CommentBox = React.createClass({
       );
     }
 });
+
+var NavBar = React.createClass({
+    handleCommentSubmit: function (login) {
+        var data = new FormData();
+        data.append('Username', login.Username);
+        data.append('Password', login.Password);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', this.props.submitLoginUrl, true);
+        xhr.send(data);
+    },
+
+    handleSubmit: function (e) {
+        e.preventDefault();
+        var username = this.refs.username.value.trim();
+        var password = this.refs.password.value.trim();
+        if (!password || !username) {
+            return;
+        }
+        this.handleCommentSubmit({ Username: username, Password: password });
+        this.refs.username.value = '';
+        this.refs.password.value = '';
+        return;
+    },
+    render: function() {
+        return (
+          <form className="loginForm" onSubmit={this.handleSubmit} >
+            <input type="text" placeholder="username" ref="username" />
+            <input type="text" placeholder="password" ref="password" />
+            <input type="submit" value="Post" />
+          </form>
+      );
+    }
+});
+
+
 ReactDOM.render(
+    <NavBar submitLoginUrl="/login"/>,
     <CommentBox url="/comments" submitUrl="/comments/new" pollInterval={2000} />,
     document.getElementById('content')
 );
