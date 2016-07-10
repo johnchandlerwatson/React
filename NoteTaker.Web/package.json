@@ -1,0 +1,24 @@
+{
+  "name": "my-package",
+  "version": "1.0.0",
+  "description": "npm package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t [ babelify --presets [ react ] ] Scripts/index.jsx -o Scripts/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnchandlerwatson/React.git"
+  },
+  "author": "Chandler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnchandlerwatson/React/issues"
+  },
+  "homepage": "https://github.com/johnchandlerwatson/React#readme",
+  "dependencies": {
+    "showdown": "1.4.2",
+    "moment" : "2.14.1" 
+  }
+}
