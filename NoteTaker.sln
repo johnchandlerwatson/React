@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteTaker.Core", "NoteTaker.Core\NoteTaker.Core.csproj", "{50317AA7-9C05-4AD0-ACCE-ED8570183604}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteTaker.Tests", "NoteTaker.Tests\NoteTaker.Tests.csproj", "{0075F794-8BC1-4832-96ED-5A10F10F411A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteTaker.Web", "NoteTaker.Web\NoteTaker.Web.csproj", "{80A38FE4-C70C-49D7-814C-05CBD0114E84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50317AA7-9C05-4AD0-ACCE-ED8570183604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50317AA7-9C05-4AD0-ACCE-ED8570183604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50317AA7-9C05-4AD0-ACCE-ED8570183604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50317AA7-9C05-4AD0-ACCE-ED8570183604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0075F794-8BC1-4832-96ED-5A10F10F411A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0075F794-8BC1-4832-96ED-5A10F10F411A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0075F794-8BC1-4832-96ED-5A10F10F411A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0075F794-8BC1-4832-96ED-5A10F10F411A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A38FE4-C70C-49D7-814C-05CBD0114E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A38FE4-C70C-49D7-814C-05CBD0114E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A38FE4-C70C-49D7-814C-05CBD0114E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A38FE4-C70C-49D7-814C-05CBD0114E84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

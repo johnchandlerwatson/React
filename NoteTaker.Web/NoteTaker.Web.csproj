@@ -1,0 +1,863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\JavaScriptEngineSwitcher.V8.1.5.2\build\JavaScriptEngineSwitcher.V8.props" Condition="Exists('..\packages\JavaScriptEngineSwitcher.V8.1.5.2\build\JavaScriptEngineSwitcher.V8.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80A38FE4-C70C-49D7-814C-05CBD0114E84}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NoteTaker.Web</RootNamespace>
+    <AssemblyName>NoteTaker.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClearScript, Version=5.4.5.0, Culture=neutral, PublicKeyToken=935d0c957da47c73, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.1.5.2\lib\net40\ClearScript.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Core, Version=1.5.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.1.5.0\lib\net40\JavaScriptEngineSwitcher.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Msie, Version=1.5.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Msie.1.5.0\lib\net40\JavaScriptEngineSwitcher.Msie.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.V8, Version=1.5.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.1.5.2\lib\net40\JavaScriptEngineSwitcher.V8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JSPool, Version=0.4.0.0, Culture=neutral, PublicKeyToken=2fc7775f73072640, processorArchitecture=MSIL">
+      <HintPath>..\packages\JSPool.0.4.1\lib\net40-Client\JSPool.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MsieJavaScriptEngine, Version=1.7.0.0, Culture=neutral, PublicKeyToken=a3a2846a37ac0d3e, processorArchitecture=MSIL">
+      <HintPath>..\packages\MsieJavaScriptEngine.1.7.0\lib\net40\MsieJavaScriptEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="React.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\React.Core.2.4.0\lib\net40\React.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web">
+      <HintPath>..\packages\React.Web.2.4.0\lib\net40\React.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web.Mvc4">
+      <HintPath>..\packages\React.Web.Mvc4.2.4.0\lib\net40\React.Web.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization.React, Version=2.4.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Optimization.React.2.4.0\lib\net40\System.Web.Optimization.React.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="VroomJs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\React.Core.2.4.0\lib\net40\VroomJs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\ReactConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DbContextController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="readme.txt" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\node_modules\moment\ender.js" />
+    <Content Include="Scripts\node_modules\moment\locale\af.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ar-ma.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ar-sa.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ar-tn.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ar.js" />
+    <Content Include="Scripts\node_modules\moment\locale\az.js" />
+    <Content Include="Scripts\node_modules\moment\locale\be.js" />
+    <Content Include="Scripts\node_modules\moment\locale\bg.js" />
+    <Content Include="Scripts\node_modules\moment\locale\bn.js" />
+    <Content Include="Scripts\node_modules\moment\locale\bo.js" />
+    <Content Include="Scripts\node_modules\moment\locale\br.js" />
+    <Content Include="Scripts\node_modules\moment\locale\bs.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ca.js" />
+    <Content Include="Scripts\node_modules\moment\locale\cs.js" />
+    <Content Include="Scripts\node_modules\moment\locale\cv.js" />
+    <Content Include="Scripts\node_modules\moment\locale\cy.js" />
+    <Content Include="Scripts\node_modules\moment\locale\da.js" />
+    <Content Include="Scripts\node_modules\moment\locale\de-at.js" />
+    <Content Include="Scripts\node_modules\moment\locale\de.js" />
+    <Content Include="Scripts\node_modules\moment\locale\dv.js" />
+    <Content Include="Scripts\node_modules\moment\locale\el.js" />
+    <Content Include="Scripts\node_modules\moment\locale\en-au.js" />
+    <Content Include="Scripts\node_modules\moment\locale\en-ca.js" />
+    <Content Include="Scripts\node_modules\moment\locale\en-gb.js" />
+    <Content Include="Scripts\node_modules\moment\locale\en-ie.js" />
+    <Content Include="Scripts\node_modules\moment\locale\en-nz.js" />
+    <Content Include="Scripts\node_modules\moment\locale\eo.js" />
+    <Content Include="Scripts\node_modules\moment\locale\es.js" />
+    <Content Include="Scripts\node_modules\moment\locale\et.js" />
+    <Content Include="Scripts\node_modules\moment\locale\eu.js" />
+    <Content Include="Scripts\node_modules\moment\locale\fa.js" />
+    <Content Include="Scripts\node_modules\moment\locale\fi.js" />
+    <Content Include="Scripts\node_modules\moment\locale\fo.js" />
+    <Content Include="Scripts\node_modules\moment\locale\fr-ca.js" />
+    <Content Include="Scripts\node_modules\moment\locale\fr-ch.js" />
+    <Content Include="Scripts\node_modules\moment\locale\fr.js" />
+    <Content Include="Scripts\node_modules\moment\locale\fy.js" />
+    <Content Include="Scripts\node_modules\moment\locale\gd.js" />
+    <Content Include="Scripts\node_modules\moment\locale\gl.js" />
+    <Content Include="Scripts\node_modules\moment\locale\he.js" />
+    <Content Include="Scripts\node_modules\moment\locale\hi.js" />
+    <Content Include="Scripts\node_modules\moment\locale\hr.js" />
+    <Content Include="Scripts\node_modules\moment\locale\hu.js" />
+    <Content Include="Scripts\node_modules\moment\locale\hy-am.js" />
+    <Content Include="Scripts\node_modules\moment\locale\id.js" />
+    <Content Include="Scripts\node_modules\moment\locale\is.js" />
+    <Content Include="Scripts\node_modules\moment\locale\it.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ja.js" />
+    <Content Include="Scripts\node_modules\moment\locale\jv.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ka.js" />
+    <Content Include="Scripts\node_modules\moment\locale\kk.js" />
+    <Content Include="Scripts\node_modules\moment\locale\km.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ko.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ky.js" />
+    <Content Include="Scripts\node_modules\moment\locale\lb.js" />
+    <Content Include="Scripts\node_modules\moment\locale\lo.js" />
+    <Content Include="Scripts\node_modules\moment\locale\lt.js" />
+    <Content Include="Scripts\node_modules\moment\locale\lv.js" />
+    <Content Include="Scripts\node_modules\moment\locale\me.js" />
+    <Content Include="Scripts\node_modules\moment\locale\mk.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ml.js" />
+    <Content Include="Scripts\node_modules\moment\locale\mr.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ms-my.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ms.js" />
+    <Content Include="Scripts\node_modules\moment\locale\my.js" />
+    <Content Include="Scripts\node_modules\moment\locale\nb.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ne.js" />
+    <Content Include="Scripts\node_modules\moment\locale\nl.js" />
+    <Content Include="Scripts\node_modules\moment\locale\nn.js" />
+    <Content Include="Scripts\node_modules\moment\locale\pa-in.js" />
+    <Content Include="Scripts\node_modules\moment\locale\pl.js" />
+    <Content Include="Scripts\node_modules\moment\locale\pt-br.js" />
+    <Content Include="Scripts\node_modules\moment\locale\pt.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ro.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ru.js" />
+    <Content Include="Scripts\node_modules\moment\locale\se.js" />
+    <Content Include="Scripts\node_modules\moment\locale\si.js" />
+    <Content Include="Scripts\node_modules\moment\locale\sk.js" />
+    <Content Include="Scripts\node_modules\moment\locale\sl.js" />
+    <Content Include="Scripts\node_modules\moment\locale\sq.js" />
+    <Content Include="Scripts\node_modules\moment\locale\sr-cyrl.js" />
+    <Content Include="Scripts\node_modules\moment\locale\sr.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ss.js" />
+    <Content Include="Scripts\node_modules\moment\locale\sv.js" />
+    <Content Include="Scripts\node_modules\moment\locale\sw.js" />
+    <Content Include="Scripts\node_modules\moment\locale\ta.js" />
+    <Content Include="Scripts\node_modules\moment\locale\te.js" />
+    <Content Include="Scripts\node_modules\moment\locale\th.js" />
+    <Content Include="Scripts\node_modules\moment\locale\tl-ph.js" />
+    <Content Include="Scripts\node_modules\moment\locale\tlh.js" />
+    <Content Include="Scripts\node_modules\moment\locale\tr.js" />
+    <Content Include="Scripts\node_modules\moment\locale\tzl.js" />
+    <Content Include="Scripts\node_modules\moment\locale\tzm-latn.js" />
+    <Content Include="Scripts\node_modules\moment\locale\tzm.js" />
+    <Content Include="Scripts\node_modules\moment\locale\uk.js" />
+    <Content Include="Scripts\node_modules\moment\locale\uz.js" />
+    <Content Include="Scripts\node_modules\moment\locale\vi.js" />
+    <Content Include="Scripts\node_modules\moment\locale\x-pseudo.js" />
+    <Content Include="Scripts\node_modules\moment\locale\zh-cn.js" />
+    <Content Include="Scripts\node_modules\moment\locale\zh-tw.js" />
+    <Content Include="Scripts\node_modules\moment\min\locales.js" />
+    <Content Include="Scripts\node_modules\moment\min\locales.min.js" />
+    <Content Include="Scripts\node_modules\moment\min\moment-with-locales.js" />
+    <Content Include="Scripts\node_modules\moment\min\moment-with-locales.min.js" />
+    <Content Include="Scripts\node_modules\moment\min\moment.min.js" />
+    <Content Include="Scripts\node_modules\moment\moment.js" />
+    <Content Include="Scripts\node_modules\moment\package.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\check-overflow.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\date-from-array.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\from-anything.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\from-array.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\from-object.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\from-string-and-array.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\from-string-and-format.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\from-string.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\local.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\parsing-flags.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\utc.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\create\valid.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\abs.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\add-subtract.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\as.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\bubble.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\constructor.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\create.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\duration.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\get.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\humanize.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\iso-string.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\duration\prototype.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\format\format.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\calendar.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\constructor.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\en.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\formats.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\invalid.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\lists.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\locale.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\locales.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\ordinal.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\pre-post-format.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\prototype.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\relative.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\locale\set.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\add-subtract.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\calendar.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\clone.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\compare.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\constructor.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\creation-data.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\diff.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\format.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\from.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\get-set.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\locale.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\min-max.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\moment.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\now.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\prototype.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\start-end-of.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\to-type.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\to.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\moment\valid.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\parse\regex.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\parse\token.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\aliases.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\constants.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\day-of-month.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\day-of-week.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\day-of-year.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\hour.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\millisecond.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\minute.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\month.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\offset.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\quarter.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\second.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\timestamp.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\timezone.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\units.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\week-calendar-utils.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\week-year.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\week.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\units\year.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\abs-ceil.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\abs-floor.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\abs-round.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\compare-arrays.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\defaults.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\deprecate.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\extend.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\has-own-prop.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\hooks.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\index-of.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\is-array.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\is-date.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\is-function.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\is-object.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\is-undefined.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\keys.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\map.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\some.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\to-int.js" />
+    <Content Include="Scripts\node_modules\moment\src\lib\utils\zero-fill.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\af.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ar-ma.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ar-sa.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ar-tn.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ar.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\az.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\be.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\bg.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\bn.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\bo.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\br.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\bs.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ca.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\cs.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\cv.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\cy.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\da.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\de-at.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\de.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\dv.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\el.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\en-au.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\en-ca.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\en-gb.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\en-ie.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\en-nz.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\eo.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\es.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\et.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\eu.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\fa.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\fi.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\fo.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\fr-ca.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\fr-ch.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\fr.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\fy.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\gd.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\gl.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\he.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\hi.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\hr.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\hu.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\hy-am.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\id.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\is.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\it.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ja.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\jv.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ka.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\kk.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\km.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ko.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ky.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\lb.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\lo.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\lt.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\lv.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\me.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\mk.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ml.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\mr.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ms-my.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ms.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\my.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\nb.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ne.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\nl.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\nn.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\pa-in.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\pl.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\pt-br.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\pt.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ro.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ru.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\se.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\si.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\sk.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\sl.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\sq.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\sr-cyrl.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\sr.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ss.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\sv.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\sw.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\ta.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\te.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\th.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\tl-ph.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\tlh.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\tr.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\tzl.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\tzm-latn.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\tzm.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\uk.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\uz.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\vi.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\x-pseudo.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\zh-cn.js" />
+    <Content Include="Scripts\node_modules\moment\src\locale\zh-tw.js" />
+    <Content Include="Scripts\node_modules\moment\src\moment.js" />
+    <Content Include="Scripts\node_modules\reactify\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\main.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\cache.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\commoner.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\context.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\grep.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\output.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\reader.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\relative.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\util.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\lib\watcher.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\main.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\node_modules\graceful-readlink\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\bench\detect.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\bench\esprima_v_acorn.txt" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\example\strings.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\example\strings_src.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\.gitattributes" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\bin\build-acorn.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\bin\generate-identifier-regex.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\dist\acorn.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\dist\acorn_csp.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\dist\acorn_loose.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\dist\walk.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\expression.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\identifier.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\location.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\loose\acorn_loose.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\loose\expression.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\loose\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\loose\parseutil.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\loose\state.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\loose\statement.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\loose\tokenize.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\lval.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\node.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\options.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\parseutil.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\state.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\statement.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\tokencontext.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\tokenize.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\tokentype.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\util.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\walk\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\src\whitespace.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\example\defined.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\index.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\test\def.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\test\falsy.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\both.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\chained.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\complicated.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\es6-module.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\both.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\chained.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\es6-module.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\generators.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\isrequire.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\nested.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\shebang.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\sparse-array.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\strings.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\word.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\files\yield.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\generators.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\isrequire.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\nested.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\noargs.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\parseopts.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\return.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\shebang.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\sparse-array.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\strings.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\word.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\test\yield.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\common.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\glob.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\inflight.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\node_modules\wrappy\wrappy.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inherits\inherits.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inherits\inherits_browser.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inherits\test.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\minimatch\minimatch.js" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\minimatch\node_modules\brace-expansion\index.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\showdown.js" />
+    <Content Include="Scripts\showdown.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\Tutorial.jsx" />
+    <Content Include="Scripts\node_modules\.bin\showdown" />
+    <Content Include="Scripts\node_modules\.bin\showdown.cmd" />
+    <Content Include="Scripts\node_modules\moment\.npmignore" />
+    <Content Include="Scripts\node_modules\moment\CHANGELOG.md" />
+    <Content Include="Scripts\node_modules\moment\LICENSE" />
+    <Content Include="Scripts\node_modules\moment\package.json" />
+    <Content Include="Scripts\node_modules\moment\README.md" />
+    <Content Include="Scripts\node_modules\reactify\.jshintrc" />
+    <Content Include="Scripts\node_modules\reactify\.npmignore" />
+    <Content Include="Scripts\node_modules\reactify\CHANGELOG.md" />
+    <Content Include="Scripts\node_modules\reactify\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\Makefile" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\.bin\jsx" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\.bin\jsx.cmd" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\bin\jsx" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\.bin\commonize" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\.bin\commonize.cmd" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\bin\commonize" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\.bin\mkdirp" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\.bin\mkdirp.cmd" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\History.md" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\node_modules\graceful-readlink\.npmignore" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\node_modules\graceful-readlink\.travis.yml" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\node_modules\graceful-readlink\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\node_modules\graceful-readlink\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\node_modules\graceful-readlink\README.md" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\commander\Readme.md" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\.npmignore" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\.travis.yml" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\.bin\acorn" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\.bin\acorn.cmd" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\.editorconfig" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\.npmignore" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\.tern-project" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\.travis.yml" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\AUTHORS" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\bin\acorn" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\bin\prepublish.sh" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\bin\update_authors.sh" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\bin\without_eval" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\dist\.keep" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\acorn\README.md" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\.travis.yml" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\node_modules\defined\readme.markdown" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\detective\readme.markdown" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\node_modules\wrappy\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\node_modules\wrappy\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\node_modules\wrappy\README.md" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inflight\README.md" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inherits\LICENSE" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inherits\package.json" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\inherits\README.md" />
+    <Content Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\minimatch\LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Scripts\node_modules\reactify\node_modules\react-tools\node_modules\commoner\node_modules\glob\node_modules\minimatch\node_modules\brace-expansion\node_modules\balanced-match\" />
+    <Folder Include="Scripts\node_modules\showdown\" />
+    <Folder Include="Scripts\React\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NoteTaker.Core\NoteTaker.Core.csproj">
+      <Project>{50317AA7-9C05-4AD0-ACCE-ED8570183604}</Project>
+      <Name>NoteTaker.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\node_modules\moment\moment.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57443</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57443/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\JavaScriptEngineSwitcher.V8.1.5.2\build\JavaScriptEngineSwitcher.V8.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JavaScriptEngineSwitcher.V8.1.5.2\build\JavaScriptEngineSwitcher.V8.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

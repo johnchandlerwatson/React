@@ -1,0 +1,10 @@
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\bin\Debug\NoteTaker.Core.dll.config
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\bin\Debug\NoteTaker.Core.dll
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\bin\Debug\NoteTaker.Core.pdb
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\bin\Debug\EntityFramework.dll
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\bin\Debug\EntityFramework.xml
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\obj\Debug\NoteTaker.Core.csprojResolveAssemblyReference.cache
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\obj\Debug\NoteTaker.Core.dll
+C:\Users\wats1109\Documents\Visual Studio 2015\Projects\NoteTaker\NoteTaker.Core\obj\Debug\NoteTaker.Core.pdb
