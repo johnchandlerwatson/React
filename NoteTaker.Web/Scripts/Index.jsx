@@ -4,11 +4,12 @@ var Note = React.createClass({
     render: function () {
         var converter = new showdown.Converter();
         var rawMarkup = converter.makeHtml(this.props.children.toString());
-        var date = moment(this.props.note.CreatedDate, "YYYY-MM-DD HH:mm"); //todo get the freaking date to work
+        var parsedDate = new Date(this.props.note.CreatedDate.match(/\d+/)[0] * 1);
+        var date = moment(parsedDate).format("LL"); 
         return (
           <div className="well">
             <h2 className="noteAuthor">
-                {this.props.author.FirstName} 
+                {this.props.author.FirstName} {date.toString()}
             </h2>
             <span dangerouslySetInnerHTML={{__html: rawMarkup }}></span>
          </div>
